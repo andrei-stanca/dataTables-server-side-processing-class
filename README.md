@@ -10,7 +10,7 @@ EG: use root\mainBundle\Controller\dTables;
 
 3. example:
 
-
+<code>
 
 <?php
 
@@ -39,7 +39,7 @@ class UsersController extends \root\apiBundle\Controller\DefaultController
 ...
 
 }
-
+</code>
 
 ?>
 
@@ -47,7 +47,7 @@ class UsersController extends \root\apiBundle\Controller\DefaultController
 
 
 js part: 
-
+<code>
  oTable = $('.dTable-users').dataTable({
                 "bJQueryUI": true,
                 "bAutoWidth": false,
@@ -56,11 +56,11 @@ js part:
                 "bServerSide": true,    
                 "sAjaxSource": base_url + '/users' + '/datatables',
 });
-
+</code>
 
 html part:
 
-
+<code>
 <div class="widget">
               <table class="records_list display dTable-users">
                 <thead>
@@ -79,4 +79,4 @@ html part:
             </table>
 </div>
 
-
+</code>
