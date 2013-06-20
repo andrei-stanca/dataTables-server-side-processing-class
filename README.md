@@ -39,3 +39,44 @@ class UsersController extends \root\apiBundle\Controller\DefaultController
 ...
 
 }
+
+
+?>
+
+
+
+
+js part: 
+
+ oTable = $('.dTable-users').dataTable({
+                "bJQueryUI": true,
+                "bAutoWidth": false,
+		"sPaginationType": "full_numbers",
+                "bProcessing": true,   
+                "bServerSide": true,    
+                "sAjaxSource": base_url + '/users' + '/datatables',
+});
+
+
+html part:
+
+
+<div class="widget">
+              <table class="records_list display dTable-users">
+                <thead>
+                    <tr>
+                        <th class='left-align'>First Name</th>
+                        <th class='left-align'>Last Name</th>
+                        <th class='left-align'>Phone</th>
+                        <th class='left-align'>Email</th>
+                        <th class='left-align'>Subscriber</th>
+                        <th class='left-align'>When</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+</div>
+
+
