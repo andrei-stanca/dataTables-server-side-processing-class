@@ -9,16 +9,15 @@ EG: namespace root\mainBundle\Controller;
 EG: use root\mainBundle\Controller\dTables;
 
 3. example:
-<pre>
 <code>
 
-<?php
+    <?php
 
 
-use root\mainBundle\Controller\dTables;
+    use root\mainBundle\Controller\dTables;
 
-class UsersController extends \root\apiBundle\Controller\DefaultController
-{
+    class UsersController extends \root\apiBundle\Controller\DefaultController
+    {
 
 ...
 
@@ -38,32 +37,28 @@ class UsersController extends \root\apiBundle\Controller\DefaultController
 
 ...
 
-}
+    }
 
 
 ?>
 </code>
-</pre>
 
 
 
 js part: 
-<pre>
 <code>
- oTable = $('.dTable-users').dataTable({
+     oTable = $('.dTable-users').dataTable({
                 "bJQueryUI": true,
                 "bAutoWidth": false,
 		"sPaginationType": "full_numbers",
                 "bProcessing": true,   
                 "bServerSide": true,    
                 "sAjaxSource": base_url + '/users' + '/datatables',
-});
+    });
 </code>
-</pre>
 html part:
-<pre>
 <code>
-<div class="widget">
+    <div class="widget">
               <table class="records_list display dTable-users">
                 <thead>
                     <tr>
@@ -79,8 +74,7 @@ html part:
 
                 </tbody>
             </table>
-</div>
+    </div>
 
 </code>
-</pre>
 
