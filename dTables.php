@@ -5,8 +5,6 @@
  * @author andrei
  */
 
-namespace root\mainBundle\Controller;
-
 
 class dTables {
     
@@ -176,54 +174,49 @@ class dTables {
         /*
          * Data length after sFilter
          */
-        $this->sQuery = "
-		SELECT FOUND_ROWS()
-	";
+        $this->sQuery = "SELECT FOUND_ROWS()";
         $this->aResultFilterTotal = $this->PDO->fetchAll($this->sQuery);
-	$this->iFilteredTotal = $this->aResultFilterTotal[0]['FOUND_ROWS()'];
+		$this->iFilteredTotal = $this->aResultFilterTotal[0]['FOUND_ROWS()'];
         
         /*
          * Total data length
          */
         $this->sQuery = "
-		SELECT COUNT(".$this->sIndexColumn.")
-		FROM   $this->sTable
-	";
+							SELECT COUNT(".$this->sIndexColumn.")
+							FROM   $this->sTable
+						";
         
         $this->aResultTotal = $this->PDO->fetchAll($this->sQuery);
         $this->iTotal = $this->aResultTotal[0]['COUNT(id)'];
 
         /*
-	 * Output Format
-	 */
-	$this->output = array(
-		"sEcho" => intval($_GET['sEcho']),
-		"iTotalRecords" => $this->iTotal,
-		"iTotalDisplayRecords" => $this->iFilteredTotal,
-		"aaData" => array()
-	);
+		 * Output Format
+		 */
+		$this->output = array(
+			"sEcho" => intval($_GET['sEcho']),
+			"iTotalRecords" => $this->iTotal,
+			"iTotalDisplayRecords" => $this->iFilteredTotal,
+			"aaData" => array()
+		);
         
         
         foreach($this->rResult as $aRow)
         {
-            	for ( $i=0 ; $i<count($this->aColumns) ; $i++ )
-		{
-			if ( $this->aColumns[$i] == "version" )
+            for ( $i=0 ; $i<count($this->aColumns) ; $i++ )
 			{
-				/* Special output formatting for 'version' column */
-				$row[] = ($aRow[ $this->aColumns[$i] ]=="0") ? '-' : $aRow[ $this->aColumns[$i] ];
+				if ( $this->aColumns[$i] == "version" )
+				{
+					/* Special output formatting for 'version' column */
+					$row[] = ($aRow[ $this->aColumns[$i] ]=="0") ? '-' : $aRow[ $this->aColumns[$i] ];
+				}
+				else if ( $this->aColumns[$i] != ' ' )
+				{
+					/* General output */
+					$row[] = $aRow[ $this->aColumns[$i] ];
+				}
 			}
-			else if ( $this->aColumns[$i] != ' ' )
-			{
-				/* General output */
-				$row[] = $aRow[ $this->aColumns[$i] ];
-			}
-		}
-		$this->output['aaData'][] = $row;
+			$this->output['aaData'][] = $row;
         }
-        
-        
-        return json_encode($this->output);
     }
     
 }
