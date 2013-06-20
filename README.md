@@ -18,7 +18,7 @@ EG: use root\mainBundle\Controller\dTables;
     class UsersController extends \root\apiBundle\Controller\DefaultController
     {
 
-...
+    [...]
 
     /**
      * @Route("users/datatables", name="users_ajax")
@@ -34,7 +34,7 @@ EG: use root\mainBundle\Controller\dTables;
         exit();
     }
 
-...
+    [...]
 
     }
 
@@ -45,14 +45,15 @@ EG: use root\mainBundle\Controller\dTables;
 
 js part: 
 `     oTable = $('.dTable-users').dataTable({
-                "bJQueryUI": true,
-                "bAutoWidth": false,
+		"bJQueryUI": true,
+		"bAutoWidth": false,
 		"sPaginationType": "full_numbers",
-                "bProcessing": true,   
-                "bServerSide": true,    
-                "sAjaxSource": base_url + '/users' + '/datatables',
+		"bProcessing": true,
+		"bServerSide": true,
+		"sAjaxSource": base_url + '/users' + '/datatables',
     });`
 html part:
+
 `   <div class="widget">
               <table class="records_list display dTable-users">
                 <thead>
