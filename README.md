@@ -9,9 +9,8 @@ EG: namespace root\mainBundle\Controller;
 EG: use root\mainBundle\Controller\dTables;
 
 3. example:
-<code>
 
-    <?php
+`    <?php
 
 
     use root\mainBundle\Controller\dTables;
@@ -41,24 +40,20 @@ EG: use root\mainBundle\Controller\dTables;
 
 
 ?>
-</code>
-
+`
 
 
 js part: 
-<code>
-     oTable = $('.dTable-users').dataTable({
+`     oTable = $('.dTable-users').dataTable({
                 "bJQueryUI": true,
                 "bAutoWidth": false,
 		"sPaginationType": "full_numbers",
                 "bProcessing": true,   
                 "bServerSide": true,    
                 "sAjaxSource": base_url + '/users' + '/datatables',
-    });
-</code>
+    });`
 html part:
-<code>
-    <div class="widget">
+`   <div class="widget">
               <table class="records_list display dTable-users">
                 <thead>
                     <tr>
@@ -75,6 +70,5 @@ html part:
                 </tbody>
             </table>
     </div>
-
-</code>
+`
 
